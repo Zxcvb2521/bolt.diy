@@ -5,6 +5,8 @@
 Welcome to bolt.diy, the official open source version of Bolt.new, which allows you to choose the LLM that you use for each prompt! Currently, you can use OpenAI, Anthropic, Ollama, OpenRouter, Gemini, LMStudio, Mistral, xAI, HuggingFace, DeepSeek, Groq, Cohere, Together, Perplexity, Moonshot (Kimi), Hyperbolic, GitHub Models, Amazon Bedrock, and OpenAI-like providers - and it is easily extended to use any other model supported by the Vercel AI SDK! See the instructions below for running this locally and extending it to include more models.
 
 -----
+[🇷🇺 Русская версия README](./README.ru.md)
+
 Check the [bolt.diy Docs](https://stackblitz-labs.github.io/bolt.diy/) for more official installation instructions and additional information.
 
 -----
@@ -13,6 +15,19 @@ Also [this pinned post in our community](https://thinktank.ottomator.ai/t/videos
 We have also launched an experimental agent called the "bolt.diy Expert" that can answer common questions about bolt.diy. Find it here on the [oTTomator Live Agent Studio](https://studio.ottomator.ai/).
 
 bolt.diy was originally started by [Cole Medin](https://www.youtube.com/@ColeMedin) but has quickly grown into a massive community effort to build the BEST open source AI coding assistant!
+
+## Windows quick access (батники в корне)
+
+If you cannot find the scripts, use these files in the repository root:
+
+```bat
+install-windows.bat
+build-windows-exe.bat
+```
+
+They are convenience launchers that call:
+- `scripts\setup-windows.bat`
+- `scripts\build-exe.bat`
 
 ## Table of Contents
 
@@ -151,6 +166,12 @@ You have two options for running Bolt.DIY: directly on your machine or using Doc
    ```bash
    pnpm run dev
    ```
+
+   For faster local iteration (skips startup banner/git hash check):
+
+   ```bash
+   pnpm run dev:fast
+   ```
    
 ### Option 2: Using Docker
 
@@ -200,6 +221,25 @@ This option requires Docker and is great when you want an isolated environment o
 
    When the container starts it runs `pnpm run dockerstart`, which in turn executes `bindings.sh` to pass Cloudflare bindings through Wrangler. You can override this command in `docker-compose.yaml` if you need a different startup routine.
 
+### Option 2.5: One-click setup on Windows (.bat)
+
+For quick local setup on Windows, you can run the bootstrap script that installs common prerequisites and project dependencies automatically:
+
+```bat
+scripts\setup-windows.bat
+```
+
+To build the Windows installer afterwards:
+
+```bat
+scripts\build-exe.bat
+```
+
+The script will:
+- install `Git` and `Node.js LTS` via `winget` (or `choco` fallback) if they are missing;
+- activate/install `pnpm`;
+- run `pnpm install` in the project root.
+
 ### Option 3: Desktop Application (Electron)
 
 For users who prefer a native desktop experience, bolt.diy is also available as an Electron desktop application:
@@ -221,6 +261,7 @@ For users who prefer a native desktop experience, bolt.diy is also available as 
    # OR platform-specific:
    pnpm electron:build:mac   # macOS
    pnpm electron:build:win   # Windows
+   pnpm electron:build:exe   # Windows installer (.exe)
    pnpm electron:build:linux # Linux
    ```
 
@@ -463,6 +504,7 @@ Remember to always commit your local changes or stash them before pulling update
 ## Available Scripts
 
 - **`pnpm run dev`**: Starts the development server.
+- **`pnpm run dev:fast`**: Starts the development server with pre-start checks skipped for faster local startup.
 - **`pnpm run build`**: Builds the project.
 - **`pnpm run start`**: Runs the built application locally using Wrangler Pages.
 - **`pnpm run preview`**: Builds and runs the production build locally.
@@ -473,6 +515,10 @@ Remember to always commit your local changes or stash them before pulling update
 - **`pnpm run lint`**: Runs ESLint to check for code issues.
 - **`pnpm run lint:fix`**: Automatically fixes linting issues.
 - **`pnpm run clean`**: Cleans build artifacts and cache.
+- **`install-windows.bat`**: Root-level launcher for Windows setup (calls `scripts\setup-windows.bat`).
+- **`scripts\setup-windows.bat`**: Windows bootstrap installer for Git/Node.js/pnpm + project dependencies.
+- **`build-windows-exe.bat`**: Root-level launcher for `.exe` build (calls `scripts\build-exe.bat`).
+- **`scripts\build-exe.bat`**: Builds Windows installer (`.exe`) via Electron Builder.
 - **`pnpm run prepare`**: Sets up husky for git hooks.
 - **Docker Scripts**:
   - **`pnpm run dockerbuild`**: Builds the Docker image for development.
@@ -487,6 +533,8 @@ Remember to always commit your local changes or stash them before pulling update
   - **`pnpm electron:build:unpack`**: Creates an unpacked Electron build.
   - **`pnpm electron:build:mac`**: Builds for macOS.
   - **`pnpm electron:build:win`**: Builds for Windows.
+  - Produces installer artifacts in `dist/` (including `*-setup.exe`).
+- **`pnpm electron:build:exe`**: Alias for generating the Windows `.exe` installer.
   - **`pnpm electron:build:linux`**: Builds for Linux.
   - **`pnpm electron:build:dist`**: Builds for all platforms.
 

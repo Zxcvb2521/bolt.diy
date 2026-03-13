@@ -22,11 +22,11 @@ mac:
   target:
     - dmg
   identity: null
-  category: "public.app-category.developer-tools"
-  type: "distribution"
+  category: 'public.app-category.developer-tools'
+  type: 'distribution'
   hardenedRuntime: true
-  entitlements: "assets/entitlements.mac.plist"
-  entitlementsInherit: "assets/entitlements.mac.plist"
+  entitlements: 'assets/entitlements.mac.plist'
+  entitlementsInherit: 'assets/entitlements.mac.plist'
   gatekeeperAssess: false
 
 win:
@@ -59,6 +59,3 @@ publish:
   repo: bolt.local
   private: true
   releaseType: release
-
-electronDownload:
-  mirror: https://npmmirror.com/mirrors/electron/

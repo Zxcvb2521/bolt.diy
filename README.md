@@ -16,6 +16,19 @@ We have also launched an experimental agent called the "bolt.diy Expert" that ca
 
 bolt.diy was originally started by [Cole Medin](https://www.youtube.com/@ColeMedin) but has quickly grown into a massive community effort to build the BEST open source AI coding assistant!
 
+## Windows quick access (батники в корне)
+
+If you cannot find the scripts, use these files in the repository root:
+
+```bat
+install-windows.bat
+build-windows-exe.bat
+```
+
+They are convenience launchers that call:
+- `scripts\setup-windows.bat`
+- `scripts\build-exe.bat`
+
 ## Table of Contents
 
 - [Join the Community](#join-the-community)
@@ -502,7 +515,9 @@ Remember to always commit your local changes or stash them before pulling update
 - **`pnpm run lint`**: Runs ESLint to check for code issues.
 - **`pnpm run lint:fix`**: Automatically fixes linting issues.
 - **`pnpm run clean`**: Cleans build artifacts and cache.
+- **`install-windows.bat`**: Root-level launcher for Windows setup (calls `scripts\setup-windows.bat`).
 - **`scripts\setup-windows.bat`**: Windows bootstrap installer for Git/Node.js/pnpm + project dependencies.
+- **`build-windows-exe.bat`**: Root-level launcher for `.exe` build (calls `scripts\build-exe.bat`).
 - **`scripts\build-exe.bat`**: Builds Windows installer (`.exe`) via Electron Builder.
 - **`pnpm run prepare`**: Sets up husky for git hooks.
 - **Docker Scripts**:

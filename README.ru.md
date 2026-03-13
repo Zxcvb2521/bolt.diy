@@ -78,3 +78,16 @@ pnpm electron:build:exe
 - Документация: https://stackblitz-labs.github.io/bolt.diy/
 - Сообщество: https://thinktank.ottomator.ai
 
+
+## Быстрый доступ на Windows (батники в корне)
+
+Если не можете найти bat-файлы в `scripts`, используйте батники в корне репозитория:
+
+```bat
+install-windows.bat
+build-windows-exe.bat
+```
+
+Это ярлыки-обёртки для:
+- `scripts\setup-windows.bat`
+- `scripts\build-exe.bat`

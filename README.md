@@ -151,6 +151,12 @@ You have two options for running Bolt.DIY: directly on your machine or using Doc
    ```bash
    pnpm run dev
    ```
+
+   For faster local iteration (skips startup banner/git hash check):
+
+   ```bash
+   pnpm run dev:fast
+   ```
    
 ### Option 2: Using Docker
 
@@ -463,6 +469,7 @@ Remember to always commit your local changes or stash them before pulling update
 ## Available Scripts
 
 - **`pnpm run dev`**: Starts the development server.
+- **`pnpm run dev:fast`**: Starts the development server with pre-start checks skipped for faster local startup.
 - **`pnpm run build`**: Builds the project.
 - **`pnpm run start`**: Runs the built application locally using Wrangler Pages.
 - **`pnpm run preview`**: Builds and runs the production build locally.

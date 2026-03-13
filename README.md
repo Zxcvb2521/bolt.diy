@@ -206,6 +206,19 @@ This option requires Docker and is great when you want an isolated environment o
 
    When the container starts it runs `pnpm run dockerstart`, which in turn executes `bindings.sh` to pass Cloudflare bindings through Wrangler. You can override this command in `docker-compose.yaml` if you need a different startup routine.
 
+### Option 2.5: One-click setup on Windows (.bat)
+
+For quick local setup on Windows, you can run the bootstrap script that installs common prerequisites and project dependencies automatically:
+
+```bat
+scripts\setup-windows.bat
+```
+
+The script will:
+- install `Git` and `Node.js LTS` via `winget` (or `choco` fallback) if they are missing;
+- activate/install `pnpm`;
+- run `pnpm install` in the project root.
+
 ### Option 3: Desktop Application (Electron)
 
 For users who prefer a native desktop experience, bolt.diy is also available as an Electron desktop application:
@@ -480,6 +493,7 @@ Remember to always commit your local changes or stash them before pulling update
 - **`pnpm run lint`**: Runs ESLint to check for code issues.
 - **`pnpm run lint:fix`**: Automatically fixes linting issues.
 - **`pnpm run clean`**: Cleans build artifacts and cache.
+- **`scripts\setup-windows.bat`**: Windows bootstrap installer for Git/Node.js/pnpm + project dependencies.
 - **`pnpm run prepare`**: Sets up husky for git hooks.
 - **Docker Scripts**:
   - **`pnpm run dockerbuild`**: Builds the Docker image for development.

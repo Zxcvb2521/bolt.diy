@@ -214,6 +214,12 @@ For quick local setup on Windows, you can run the bootstrap script that installs
 scripts\setup-windows.bat
 ```
 
+To build the Windows installer afterwards:
+
+```bat
+scripts\build-exe.bat
+```
+
 The script will:
 - install `Git` and `Node.js LTS` via `winget` (or `choco` fallback) if they are missing;
 - activate/install `pnpm`;
@@ -240,6 +246,7 @@ For users who prefer a native desktop experience, bolt.diy is also available as 
    # OR platform-specific:
    pnpm electron:build:mac   # macOS
    pnpm electron:build:win   # Windows
+   pnpm electron:build:exe   # Windows installer (.exe)
    pnpm electron:build:linux # Linux
    ```
 
@@ -494,6 +501,7 @@ Remember to always commit your local changes or stash them before pulling update
 - **`pnpm run lint:fix`**: Automatically fixes linting issues.
 - **`pnpm run clean`**: Cleans build artifacts and cache.
 - **`scripts\setup-windows.bat`**: Windows bootstrap installer for Git/Node.js/pnpm + project dependencies.
+- **`scripts\build-exe.bat`**: Builds Windows installer (`.exe`) via Electron Builder.
 - **`pnpm run prepare`**: Sets up husky for git hooks.
 - **Docker Scripts**:
   - **`pnpm run dockerbuild`**: Builds the Docker image for development.
@@ -508,6 +516,8 @@ Remember to always commit your local changes or stash them before pulling update
   - **`pnpm electron:build:unpack`**: Creates an unpacked Electron build.
   - **`pnpm electron:build:mac`**: Builds for macOS.
   - **`pnpm electron:build:win`**: Builds for Windows.
+  - Produces installer artifacts in `dist/` (including `*-setup.exe`).
+- **`pnpm electron:build:exe`**: Alias for generating the Windows `.exe` installer.
   - **`pnpm electron:build:linux`**: Builds for Linux.
   - **`pnpm electron:build:dist`**: Builds for all platforms.
 
